@@ -12,7 +12,16 @@ var todos = [
 const todosApp = {
     data() {
         return {
-            todos: window.todos
+            todos: window.todos,
+            newTodo: {}
+        }
+    },
+    methods: {
+        createTodo() {
+            this.todos.push(this.newTodo)
+            this.newTodo = {
+                done: false
+            }
         }
     }
 };

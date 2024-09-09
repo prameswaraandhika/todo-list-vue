@@ -15,11 +15,8 @@
         
         <main id="app">
             
-            <section class="todo-list">
-                
-                
+            <section class="todo-list">        
                 <h3>To-do List</h3>
-                
                 <div class="all-todos">
                     <div v-for="todo in todos"
                          class="single-todo"
@@ -30,8 +27,8 @@
 
                 <button class="clear">Clear All</button>
 
-                <input type="text" placeholder="Add new to-do">
-                <button class="add">Add</button>
+                <input type="text" placeholder="Add new to-do" v-model="newTodo.text">
+                <button class="add" @click="createTodo()">Add</button>
 
                 <div class="instructions">
                     Instructions:
