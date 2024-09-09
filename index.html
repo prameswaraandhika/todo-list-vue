@@ -20,14 +20,15 @@
                 <div class="all-todos">
                     <div v-for="todo in todos"
                          class="single-todo"
-                         :class="{done : todo.done}">
+                         :class="{done : todo.done}"
+                         @click="todo.done = !todo.done">
                         <p>{{todo.text}}</p>
                     </div>
                 </div>
 
-                <button class="clear">Clear All</button>
+                <button class="clear" @click="clearTodos()" v-if="todos.length">Clear All</button>
 
-                <input type="text" placeholder="Add new to-do" v-model="newTodo.text">
+                <input type="text" placeholder="Add new to-do" v-model="newTodo.text" @keyup.enter="createTodo()">
                 <button class="add" @click="createTodo()">Add</button>
 
                 <div class="instructions">
@@ -35,7 +36,7 @@
                     <ul>
                         <li>Click the to-do text to toggle between done / undone</li>
                         <li>Use clear all button to remove all items</li>
-                        <li>Use the input field to add new to-dos</li>
+                        <li>Use the input field to add new to-dos and then you can press Enter or click <b>Add</b> </li>
                     </ul>
                 </div>
             </section>
